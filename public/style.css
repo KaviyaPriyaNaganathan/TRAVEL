@@ -1,0 +1,1208 @@
+/* Color Palette: #004d7a (Deep Blue), #f7f7f7 (Light Gray), #ff7f50 (Coral/Sunset) */
+
+/* --------------------
+   SMOOTH SCROLL & GLOBAL PAGE LOAD
+   -------------------- */
+html {
+    scroll-behavior: smooth;
+    height: 100%;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+body {
+    font-family: 'Georgia', serif; 
+    margin: 0;
+    padding: 0;
+    background-color: #f7f7f7; 
+    color: #333; 
+    text-align: initial; 
+    animation: fadeIn 1.2s ease-out;
+    height: 100%;
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+/* Global H2 style */
+h2 {
+    color: #004d7a;
+    font-size: 2em;
+    margin-top: 40px; 
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* -------------------------------------
+   NAV BAR: FIXED AT TOP & SCROLLSPY
+   ------------------------------------- */
+nav { 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 30; 
+    background-color: rgba(44, 62, 80, 0.95);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); 
+}
+
+nav ul { 
+    list-style: none; 
+    margin: 0; 
+    padding: 0; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+}
+nav li { 
+    padding: 15px 20px; 
+}
+
+nav a { 
+    color: white; 
+    text-decoration: none; 
+    font-weight: bold; 
+    transition: color 0.3s; 
+    position: relative; 
+}
+
+nav a::after { 
+    content: ''; 
+    position: absolute; 
+    width: 0; 
+    height: 2px; 
+    display: block; 
+    margin-top: 5px; 
+    left: 0; 
+    background: #ff7f50; 
+    transition: width 0.3s ease-in-out; 
+}
+
+nav a:hover { 
+    color: #ff7f50; 
+}
+
+nav a:hover::after { 
+    width: 100%; 
+}
+
+/* ACTIVE LINK STYLE (Scrollspy Target) */
+nav ul li.active {
+    border-bottom: 3px solid #ff7f50; /* Highlights the active link container */
+}
+
+nav ul li.active a {
+    color: white; 
+    font-weight: bold;
+}
+
+.nav-cta { 
+    background-color: #ff7f50; 
+    color: white; 
+    border: none; 
+    padding: 8px 15px; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    font-weight: bold; 
+    margin-left: 10px; 
+    transition: background-color 0.3s; 
+}
+
+.nav-cta:hover { 
+    background-color: #e6673a; 
+}
+
+/* -------------------------------------
+   MAIN CONTAINER & HERO SECTION
+   ------------------------------------- */
+main {
+    padding: 0; 
+    margin: 0;
+    position: relative;
+    /* Keeps the 100px vertical space created by padding-top */
+    padding-top: 100px; 
+    min-height: calc(100vh - 80px); 
+    width: 100%;
+}
+
+/* -------------------------------------
+   FLIGHT IMAGE ANIMATION
+   ------------------------------------- */
+@keyframes slideRight {
+    0% {
+        /* Start at the left edge, no rotation */
+        transform: translateX(0); 
+    }
+    100% {
+        /* Move completely off-screen to the right AND rotate 360 degrees */
+        transform: translateX(100vw); 
+    }
+}
+
+.top-gap-image-filler-img-wrapper {
+    position: absolute; 
+    /* NOTE: top: 20px places it 20px BELOW the fixed navbar */
+    top: 20px; 
+    left: 0;
+    width: 100%; 
+    height: 100px; 
+    z-index: 40;
+    overflow: hidden; 
+    padding-left: 0; 
+    box-sizing: border-box; 
+    display: flex;
+    justify-content: flex-start; 
+    align-items: center;    
+}
+
+.gap-image {
+    width: 100px; 
+    height: 100px;
+    object-fit: cover; 
+    display: block;
+    border-radius: 10px; 
+    
+    animation: slideRight 10s linear infinite; 
+}
+
+/* HEADER/TAGLINE */
+header {
+    background-color: transparent; 
+    color: white;
+    padding: 0;
+    box-shadow: none;
+    position: absolute; 
+    /* MODIFIED: Adjusted top position */
+    top: calc(150px + 75px); 
+    left: 50%; 
+    transform: translateX(-50%); 
+    max-width: 800px; 
+    width: 90%; 
+    z-index: 10; 
+    text-align: center;
+}
+
+.hero-media-container {
+    height: 80vh; 
+    width: 100%;
+    position: relative; 
+    overflow: hidden;
+    /* NEW: Add padding here to push the hero media down below the navbar */
+    padding-top: 60px; 
+}
+
+.hero-image {
+    position: absolute; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    min-width: 100%; 
+    width: 100%;
+    height: auto;
+    min-height: 100%; 
+    object-fit: cover; 
+    z-index: 1; 
+    filter: brightness(0.6);
+    transition: filter 0.5s ease; 
+}
+
+h1 { 
+    margin-bottom: 5px; 
+    font-size: 3.5em; 
+    font-weight: 800;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+    animation: slideInUp 0.8s ease-out 0.2s backwards; 
+}
+
+.tagline { 
+    font-style: italic; 
+    opacity: 1;
+    font-size: 1.5em;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+    animation: slideInUp 0.8s ease-out 0.4s backwards; 
+}
+
+#colorChangeButton { 
+    display: block;
+    margin: 30px auto; 
+    background-color: #ff7f50; 
+    color: white; 
+    padding: 12px 25px; 
+    border: none; 
+    border-radius: 25px; 
+    cursor: pointer; 
+    font-size: 1.1em; 
+    transition: background-color 0.3s; 
+}
+
+#colorChangeButton:hover { 
+    background-color: #ff6347; 
+}
+
+
+/* -------------------------------------
+   DESTINATION CARDS & DROPDOWNS
+   ------------------------------------- */
+
+#destinations {
+    max-width: 1100px;
+    margin: 20px auto; 
+    padding: 40px 20px 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    text-align: center;
+}
+
+#destinations h2 {
+    margin-top: 0; 
+    margin-bottom: 20px; 
+    color: #004d7a; /* Deep Blue title color */
+}
+
+/* Destination Grid Layout */
+.destination-grid {
+    display: grid;
+    /* Creates responsive grid columns */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 30px;
+    max-width: 100%;
+    margin: 40px auto 20px; 
+    padding: 0 20px;
+}
+
+/* Individual Destination Card */
+.destination-card {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden; 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: 1px solid #e0e0e0; 
+    
+    /* Ensures dropdown is positioned correctly */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.destination-card:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 8px 25px rgba(0, 77, 122, 0.3); 
+    border-color: #004d7a; 
+}
+
+.destination-card img {
+    width: 100%;
+    height: 180px; /* Slightly taller image for better impact */
+    object-fit: cover; 
+}
+
+.destination-card h3 {
+    color: #004d7a;
+    margin: 15px 15px 5px;
+    font-size: 1.5em;
+}
+
+.destination-card p {
+    padding: 0 15px;
+    font-size: 0.95em;
+    color: #666;
+    line-height: 1.4;
+    margin-bottom: 10px;
+    flex-grow: 1; /* Ensures text block pushes the button down consistently */
+}
+
+/* =========================================================
+   DESTINATION EXPAND/COLLAPSE PLUGIN STYLES
+   ========================================================= */
+
+/* 1. Initially hide the new items */
+.destination-grid .new-item {
+    display: none;
+    /* Optional: Ensure the scroll-reveal effect still works when they become visible */
+}
+
+/* 2. Class added by JavaScript to show all items */
+.destination-grid.expanded .new-item {
+    display: block;
+}
+
+.destination-card img {
+    width: 100%;
+    /* Minimize the height to make more of the card visible */
+    height: 300px; /* Adjusted height: Was 180px, now 120px */
+    object-fit: cover; /* Ensures the image covers the area without distorting aspect ratio */
+    border-radius: 10px 10px 0 0; /* Match card radius for top corners */
+}
+
+/* Destination Grid Layout */
+.destination-grid {
+    display: grid;
+    /* This creates 3 columns on desktop, shrinking to 1 on mobile */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 30px;
+    max-width: 100%;
+    margin: 40px auto 20px; 
+    padding: 0 20px;
+}
+
+/* 1. Initially hide the new items (Total 7) */
+.destination-grid .new-item {
+    display: none;
+    /* Set max-height to 0 and opacity to 0 for a potentially smoother visual collapse
+       (though setting display: none is simpler and often cleaner) */
+}
+
+/* 2. Class added by JavaScript to SHOW all items */
+.destination-grid.expanded .new-item {
+    /* When expanded, the grid layout handles placing the new items */
+    display: block; 
+}
+
+/* 3. Media Query Check: Ensure 1 row (3 items) on large screens */
+@media (min-width: 900px) {
+    /* This ensures that when NOT expanded, only the first row is visible. 
+       The initial grid-template-columns handles the layout. */
+    .destination-grid {
+        /* This is generally the default, ensuring the three cards fill the space */
+        grid-template-columns: repeat(3, 1fr); 
+    }
+}
+
+@media (max-width: 768px) {
+    /* On smaller screens, everything stacks vertically, but only the first 3 are visible */
+    .destination-grid {
+        grid-template-columns: 1fr; 
+    }
+}
+
+/* =========================================================
+   DROPDOWN (VIEW TRIPS) STYLES
+   ========================================================= */
+
+/* The main container for the button and the popup content */
+.dropdown { 
+    position: relative; 
+    display: block; 
+    padding: 10px 0 15px; /* Creates vertical space at the bottom of the card */
+    text-align: center;
+}
+
+/* Base button style (for 'View Trips') */
+.card-link.dropdown-btn { 
+    background-color: #ff7f50; /* Coral/Orange color */
+    color: white; 
+    padding: 10px 20px; /* Larger padding for better click area */
+    border: none; 
+    border-radius: 5px; 
+    font-weight: bold; 
+    letter-spacing: 0.5px; 
+    cursor: pointer; 
+    transition: background-color 0.3s, transform 0.1s; 
+    text-decoration: none; 
+    display: inline-block; 
+}
+
+.dropdown-btn:hover { 
+    background-color: #e6673a; 
+    transform: translateY(-2px); 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); 
+}
+
+.dropdown-btn:active { 
+    transform: translateY(0); 
+    box-shadow: none; 
+    background-color: #ff7f50; 
+}
+
+/* DROP-DOWN CONTENT - HIDDEN BY DEFAULT (Smooth Transition Setup) */
+.dropdown-content { 
+    /* Key for smooth transition: Use visibility and opacity instead of display: none */
+    visibility: hidden; 
+    opacity: 0; 
+    transition: opacity 0.3s ease-out, visibility 0.3s ease-out, margin-top 0.3s;
+    margin-top: 15px; 
+
+    /* Positioning and appearance */
+    position: absolute; 
+    background-color: #f9f9f9; 
+    min-width: 250px; 
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); 
+    z-index: 10; /* Ensures it is above other cards */
+    border-radius: 5px; 
+    
+    /* Centering the pop-up above the button */
+    left: 50%; 
+    transform: translateX(-50%); 
+    bottom: 100%; /* Position it above the button */
+    margin-bottom: 10px; /* Space between button and popup */
+}
+
+/* LINK STYLE INSIDE DROPDOWN */
+.dropdown-content a { 
+    color: #333; 
+    padding: 10px 16px; 
+    text-decoration: none; 
+    display: block; 
+    transition: background-color 0.2s; 
+    font-weight: normal; 
+    text-align: left; 
+}
+
+.dropdown-content a:hover { 
+    background-color: #ddd; 
+}
+
+/* THE MAGIC CLASS ADDED BY JAVASCRIPT */
+.dropdown-content.show { 
+    visibility: visible; 
+    opacity: 1; 
+    /* Remove vertical margin adjustment here if using 'bottom: 100%' */
+}
+
+/* -------------------------------------
+   MEDIA QUERIES (Responsiveness)
+   ------------------------------------- */
+
+@media (max-width: 768px) {
+    .destination-grid {
+        grid-template-columns: 1fr; /* Stack cards vertically on smaller screens */
+        padding: 0 10px;
+    }
+    .destination-card {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+}
+/* --------------------
+   GALLERY SECTION - ULTRA-MINIMIZED MASONRY
+   -------------------- */
+
+#gallery {
+    background-color: #f7f7f7; 
+    padding: 0; 
+    text-align: center;
+    max-width: 800px; 
+    margin: 20px auto; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
+    background-color: #ffffff; 
+    overflow: hidden; 
+}
+
+#gallery h2 {
+    margin-top: 0;
+    padding-top: 20px; 
+    padding-bottom: 15px; 
+    margin-bottom: 0; 
+}
+
+.gallery-grid {
+    max-width: 100%; 
+    margin: 0 auto;
+    padding: 0px; 
+    column-count: 10; 
+    column-gap: 1px; 
+    margin-bottom: 0;
+}
+
+.gallery-item {
+    display: inline-block; 
+    width: 100%;
+    margin-bottom: 0; 
+    overflow: hidden; 
+    background-color: transparent; 
+    border-radius: 2px;
+    transition: all 0.3s ease-in-out; 
+    cursor: zoom-in;
+    height: auto !important;
+}
+
+.gallery-item:hover { 
+    transform: none; 
+    box-shadow: none; 
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto; 
+    object-fit: cover; 
+    display: block;
+    border-radius: 2px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s; 
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05); 
+    box-shadow: 0 0 0 1px #ff7f50, 0 1px 3px rgba(0, 0, 0, 0.5); 
+    z-index: 2;
+}
+
+
+/* --- LIGHTBOX STYLES (PURE CSS MODAL) --- */
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 100;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    display: flex;/* CAROUSEL FADE ANIMATION */ 
+@keyframes fade { 
+    from {opacity: 0.4} 
+    to {opacity: 1} 
+} 
+
+/* ------------------------------------- 
+   CAROUSEL NAVIGATION BUTTONS (ICON ONLY) 
+   NOTE: This block defines the final look and overrides the preceding styles 
+   ------------------------------------- */ 
+.carousel-prev, .carousel-next { 
+    cursor: pointer; 
+    position: absolute; 
+    top: 50%; 
+    /* Ensures icon is vertically centered correctly */
+    transform: translateY(-50%); 
+     
+    width: auto; /* Allow content (icon) to define width */ 
+    height: auto; 
+    line-height: 1; /* Reset line height for clean icon centering */ 
+     
+    color: #004d7a; /* Deep Blue icon color */ 
+    font-weight: bold; 
+    font-size: 2em; /* Icon size */ 
+    transition: color 0.3s, transform 0.3s; 
+    user-select: none; 
+     
+    background: transparent; /* No background color */ 
+    border: none; /* No border */ 
+    border-radius: 0; /* No circle shape */ 
+    box-shadow: none; /* No shadow */ 
+    z-index: 5; 
+    text-align: center; 
+    visibility: visible; /* Ensure initial visibility (JS controls hidden state for endpoints) */ 
+} 
+
+.carousel-prev { 
+    left: -30px; /* Position left button outside the carousel container */
+} 
+
+.carousel-next { 
+    right: -30px; /* Position right button outside the carousel container */
+} 
+
+/* Hover style: Change color and maybe slight scale for feedback */ 
+.carousel-prev:hover, .carousel-next:hover { 
+    background-color: transparent; /* Ensure background stays clear on hover */ 
+    color: #ff7f50; /* Change color to Coral on hover */ 
+    /* Keep translateY(-50%) to maintain vertical alignment, then add scale */
+    transform: translateY(-50%) scale(1.2); 
+}
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+}
+
+.lightbox:target {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.lightbox img {
+    display: block;
+    max-width: 90%;
+    max-height: 80vh; 
+    width: auto;
+    height: auto;
+    object-fit: contain; 
+    border-radius: 5px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    transform: none !important; 
+}
+
+.lightbox p {
+    color: white;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1.2em;
+}
+
+.lightbox .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    text-decoration: none;
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+    background: #ff7f50;
+    padding: 5px 15px;
+    border-radius: 50%;
+    line-height: 1;
+    transition: background-color 0.3s;
+}
+
+.lightbox .close:hover {
+    background-color: #e6673a;
+}
+
+/* Individual Gallery Item Height Overrides for Masonry effect */
+#img4-thumb img {
+    height: 350px; 
+    object-fit: cover; 
+}
+#img3-thumb img {
+    height: 400px; 
+    object-fit: cover; 
+}
+#img6-thumb img {
+    height: 400px; 
+    object-fit: cover; 
+}
+#img8-thumb img {
+    height: 475px; 
+    object-fit: cover; 
+}
+#img2-thumb img {
+    height: 390px; 
+    object-fit: cover; 
+}
+
+/* -------------------------------------
+   TESTIMONIALS SECTION
+   ------------------------------------- */
+
+#testimonials {
+    padding: 60px 80px;
+    background-color: #f0f8ff;
+    text-align: center;
+    overflow: hidden;
+}
+
+#testimonials h2 {
+    color: #004d7a;
+    font-size: 2.2em;
+    margin-bottom: 40px;
+}
+
+.testimonial-carousel {
+    position: relative;
+    max-width: 700px; 
+    margin: 0 auto; 
+    overflow: visible;
+}
+
+.testimonial-card {
+    display: none;
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    width: 100%; 
+    box-sizing: border-box;
+    animation-name: fade;
+    animation-duration: 0.8s;
+}
+
+.testimonial-card.active {
+    display: block;
+}
+
+.testimonial-card p {
+    font-style: italic;
+    color: #333;
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    min-height: 80px; 
+}
+
+.testimonial-card h4 {
+    color: #ff7f50;
+    font-weight: 600;
+    font-size: 1em;
+    margin: 0;
+}
+
+/* CAROUSEL FADE ANIMATION */ 
+@keyframes fade { 
+    from {opacity: 0.4} 
+    to {opacity: 1} 
+} 
+
+/* ------------------------------------- 
+   CAROUSEL NAVIGATION BUTTONS (ICON ONLY) 
+   NOTE: This is the final, effective style block. 
+   ------------------------------------- */ 
+.carousel-prev, .carousel-next { 
+    cursor: pointer; 
+    position: absolute; 
+    top: 50%; 
+    /* Ensures icon is vertically centered correctly */
+    transform: translateY(-50%); 
+     
+    /* Overrides for Icon Only */ 
+    width: auto; /* Allow content (icon) to define width */ 
+    height: auto; 
+    line-height: 1; /* Reset line height for clean icon centering */ 
+     
+    color: black; /* Deep Blue icon color */ 
+    font-weight: bold; 
+    font-size: 2em; /* Icon size */ 
+    transition: color 0.3s, transform 0.3s; 
+    user-select: none; 
+     
+    background: transparent; /* No background color */ 
+    border: none; /* No border */ 
+    border-radius: 0; /* No circle shape */ 
+    box-shadow: none; /* No shadow */ 
+    z-index: 5; 
+    text-align: center; 
+    visibility: visible; /* Ensure initial visibility */ 
+    /* Padding reset, as inherited styles may add unwanted space */
+    padding: 0; 
+} 
+
+.carousel-prev { 
+    left: -30px; /* Position left button outside the carousel container */
+} 
+
+.carousel-next { 
+    right: -30px; /* Position right button outside the carousel container */
+} 
+
+/* Hover style: Change color and maybe slight scale for feedback */ 
+.carousel-prev:hover, .carousel-next:hover { 
+    background-color: transparent; /* Ensure background stays clear on hover */ 
+    color: #ff7f50; /* Change color to Coral on hover */ 
+    /* Must include the original translateY to maintain vertical alignment */
+    transform: translateY(-50%) scale(1.2); 
+}
+/* -------------------------------------
+   CONTACT SECTION
+   ------------------------------------- */
+
+/* Main Container: Two-column Flexbox */
+#contact {
+    max-width: 700px; 
+    margin: 40px auto;
+    
+    display: flex;
+    flex-direction: row; 
+    justify-content: space-between;
+    align-items: stretch; 
+    
+    padding: 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    background-color: #ffffff; 
+    overflow: hidden; 
+
+    opacity: 0; 
+    animation-name: fadeIn;
+    animation-duration: 0.6s; 
+    animation-fill-mode: forwards; 
+}
+
+/* LEFT COLUMN: Form Wrapper (Order 1) */
+.contact-form-wrapper {
+    flex: 1; 
+    padding: 20px 30px; 
+    min-width: 300px; 
+    text-align: center;
+    order: 1; 
+}
+
+/* RIGHT COLUMN: Image Container (Order 2) */
+.contact-image-container {
+    flex: 1; 
+    min-width: 200px; 
+    background-color: #e0f2f1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    order: 2; 
+}
+
+.contact-map-image {
+    width: 90%; 
+    height: 90%; 
+    object-fit: contain; 
+    display: block;
+    transform: translateY(-1%); 
+    transition: transform 0.3s ease;
+}
+
+.contact-map-image:hover {
+    transform: translateY(-1%) scale(1.02);
+}
+
+/* Form Heading */
+#contact h2 {
+    color: #004d7a;
+    font-size: 1.8em;
+    margin-bottom: 10px; 
+    border-bottom: 1px solid #ff7f50;
+    padding-bottom: 5px;
+}
+
+/* Form Gaps */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px; 
+    text-align: left;
+}
+
+/* Form Labels and Inputs */
+.contact-form label {
+    font-weight: bold;
+    margin-bottom: 2px; 
+    color: #004d7a;
+    font-size: 0.95em; 
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 0.9em;
+    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out, background-color 0.3s;
+}
+
+.contact-form input[type="text"]:focus,
+.contact-form input[type="email"]:focus,
+.contact-form textarea:focus {
+    border-color: #ff7f50;
+    box-shadow: 0 0 5px rgba(255, 127, 80, 0.3);
+    outline: none;
+}
+
+/* Text Area Height */
+.contact-form textarea {
+    resize: vertical;
+    min-height: 80px; 
+}
+
+/* Submit Button */
+.contact-form .submit-button {
+    align-self: center;
+    width: 100%;
+    max-width: 200px;
+    padding: 8px 15px;
+    background-color: #004d7a;
+    color: white;
+    font-size: 1em;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px; 
+    transition: background-color 0.3s ease, transform 0.1s ease-out;
+}
+
+.contact-form .submit-button:hover {
+    background-color: #006096;
+}
+
+.contact-form .submit-button:active {
+    transform: scale(0.98);
+}
+
+
+/* -------------------------------------
+   FOOTER & UTILITIES
+   ------------------------------------- */
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: #f7f7f7;
+    margin-top: 40px;
+    font-size: 0.9em;
+}
+
+#backToTopBtn, #liveChatIcon {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    border-radius: 50%;
+    background-color: #ff7f50;
+    color: white;
+    font-size: 1.5em;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, transform 0.3s;
+    z-index: 100;
+}
+
+#liveChatIcon {
+    right: 90px; 
+    background-color: #004d7a;
+}
+
+#backToTopBtn:hover, #liveChatIcon:hover {
+    background-color: #e66a40;
+    transform: scale(1.05);
+}
+
+#backToTopBtn {
+    display: none; 
+}
+
+/* -------------------------------------
+   RESPONSIVENESS
+   ------------------------------------- */
+
+@media (max-width: 1400px) {
+    .gallery-grid { 
+        column-count: 4; 
+    }
+}
+
+@media (max-width: 1250px) {
+    #gallery {
+        max-width: 95%; 
+        margin: 20px auto; 
+        padding: 0; 
+    }
+    
+    #destinations {
+        margin: 40px 10px; 
+        max-width: 95%; 
+    }
+}
+
+@media (max-width: 992px) {
+    .gallery-grid { 
+        column-count: 3; 
+    }
+    
+    /* Stack contact columns */
+    #contact {
+        flex-direction: column;
+        max-width: 500px;
+    }
+
+    .contact-image-container {
+        order: 1;
+        height: 200px; 
+        min-width: 100%;
+        padding: 10px 0;
+    }
+    
+    .contact-form-wrapper {
+        order: 2;
+        min-width: 100%;
+    }
+}
+
+
+/* =========================================================
+   BOOKING MODAL STYLES
+   ========================================================= */
+
+/* The Modal Backdrop (Hidden by default) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top of everything */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.6); /* Black w/ opacity for backdrop */
+}
+
+/* Modal Content Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto; /* 10% from the top and centered horizontally */
+    padding: 30px;
+    border: 1px solid #888;
+    width: 90%; /* Responsive width */
+    max-width: 500px;
+    border-radius: 10px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    animation: dropDown 0.4s;
+}
+
+/* Close Button (the X) */
+.close-modal {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-modal:hover,
+.close-modal:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Form Styling inside Modal (reuse existing form-group styles) */
+.booking-form .form-group {
+    margin-bottom: 15px;
+}
+
+.booking-form input,
+.booking-form select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* Optional: Animation for the modal dropping down */
+@keyframes dropDown {
+    from {
+        opacity: 0;
+        margin-top: -100px;
+    }
+    to {
+        opacity: 1;
+        margin-top: 10%;
+    }
+}
+
+/* Utility class to stop background scroll */
+.modal-open {
+    overflow: hidden;
+}
+
+/* =========================================================
+   BOOKING MODAL STYLES
+   ========================================================= */
+
+/* The Modal Backdrop */
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto; /* Important for accessibility on small screens */
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+/* Modal Content Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 30px;
+    border: 1px solid #888;
+    width: 90%;
+    max-width: 550px; /* Slightly larger to fit new fields */
+    border-radius: 10px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    animation: dropDown 0.4s;
+}
+
+/* Close Button (the X) */
+.close-modal {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-modal:hover,
+.close-modal:focus {
+    color: #000;
+}
+
+/* Form Styling */
+.booking-form .form-group {
+    margin-bottom: 15px;
+}
+
+.booking-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #333;
+}
+
+.booking-form input:not([type="checkbox"]),
+.booking-form select,
+.booking-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 1em;
+}
+
+/* Utility class to stop background scroll */
+.modal-open {
+    overflow: hidden;
+}
+
+/* Optional: Animation for the modal dropping down */
+@keyframes dropDown {
+    from { opacity: 0; transform: translateY(-50px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* =========================================================
+   SCROLL REVEAL STYLES (Aesthetic Plugin)
+   ========================================================= */
+
+/* Initial hidden state */
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    /* Set transition time */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* Final visible state (Added by JavaScript) */
+.scroll-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Optional: Add a slight delay to grid items for a staggered effect */
+.destination-card:nth-child(2) { transition-delay: 0.1s; }
+.destination-card:nth-child(3) { transition-delay: 0.2s; }
+
+/* Ensure the testimonial container does not overflow during animation */
+#testimonials .testimonial-container {
+    overflow-x: hidden;
+}

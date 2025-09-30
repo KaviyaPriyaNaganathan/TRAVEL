@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wanderlust Adventures - Your Next Journey</title>
+    <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <h1>Wanderlust Adventures</h1>
+        <p class="tagline">Explore the World, One Destination at a Time.</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="#destinations">Destinations</a></li>
+            <li><a href="#gallery">Gallery</a></li> 
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+            <li><button id="globalBookNow" class="nav-cta">Book Now</button></li>
+        </ul>
+    </nav>
+
+    <main>
+        <div class="top-gap-image-filler-img-wrapper">
+            <img src="assets/flight.webp" alt="Banner Image" class="gap-image">
+        </div>
+        <div class="hero-media-container">
+            <img src="assets/home.jpg" alt="Hero Image of an adventurous landscape" class="hero-image">
+        </div>
+    </main>
+
+    <section id="destinations">
+    <h2>Featured Destinations</h2>
+    <div style="text-align: center; margin-bottom: 25px;">
+        <input type="text" id="destinationSearch" placeholder="Filter by city, country, or interest..." 
+               style="padding: 10px; width: 80%; max-width: 400px; border-radius: 5px; border: 1px solid #ccc; font-size: 1em;">
+    </div>
+    
+    <div class="destination-grid"> 
+        <div class="destination-card scroll-reveal">
+            <img src="assets/paris.jpg" alt="Eiffel Tower in Paris">
+            <h3>Paris, France 🇫🇷</h3>
+            <p>The City of Lights beckons! Explore world-class museums, enjoy cafe culture, and witness the majesty of the Eiffel Tower.</p>
+        </div>
+
+        <div class="destination-card scroll-reveal">
+            <img src="assets/Cherry Blossoms in Kyoto, Japan.jpg" alt="Ancient temples of Kyoto">
+            <h3>Kyoto, Japan 🇯🇵</h3>
+            <p>Step back in time among ancient temples, serene Zen gardens, and traditional Gion geisha districts. A journey into history.</p>
+        </div>
+
+        <div class="destination-card scroll-reveal">
+            <img src="assets/Santorini _ Beautiful _ Space.jpg" alt="White and blue buildings in Santorini">
+            <h3>Santorini, Greece 🇬🇷</h3>
+            <p>Experience the legendary sunset views, iconic white-washed villages, and deep blue Aegean waters of this volcanic island.</p>
+        </div>
+
+        <div class="destination-card scroll-reveal new-item">
+            <img src="assets/peru.jpg" alt="Machu Picchu, Peru">
+            <h3>Machu Picchu, Peru 🇵🇪</h3>
+            <p>Hike the ancient Inca trail to discover the breathtaking citadel hidden high in the Andes mountains. A true marvel.</p>
+        </div>
+
+        <div class="destination-card scroll-reveal new-item">
+            <img src="assets/usa.jpg" alt="New York City Skyline">
+            <h3>New York City, USA 🇺🇸</h3>
+            <p>The city that never sleeps. Explore Broadway, museums, Central Park, and global cuisine in this iconic metropolis.</p>
+        </div>
+        
+        <div class="destination-card scroll-reveal new-item">
+            <img src="assets/cairo.jpg" alt="Pyramids of Giza">
+            <h3>Cairo, Egypt 🇪🇬</h3>
+            <p>Witness the awe-inspiring Pyramids of Giza and explore the vibrant history and treasures of the Egyptian Museum.</p>
+        </div>
+
+        <div class="destination-card scroll-reveal new-item">
+            <img src="assets/northern.jpg" alt="Northern Lights in Iceland">
+            <h3>Reykjavik, Iceland 🇮🇸</h3>
+            <p>Explore volcanic landscapes, hot springs, and chase the spectacular Northern Lights in this Nordic adventure destination.</p>
+        </div>
+        
+        <div class="destination-card scroll-reveal new-item">
+            <img src="assets/thailand.jpg" alt="Beaches of Thailand">
+            <h3>Phuket, Thailand 🇹🇭</h3>
+            <p>Relax on stunning tropical beaches, discover hidden islands, and enjoy the delicious street food culture of Southeast Asia.</p>
+        </div>
+            
+        <div class="destination-card scroll-reveal new-item">
+            <img src="assets/Vancouver Skyline.jpg" alt="Mountains overlooking Vancouver">
+            <h3>Vancouver, Canada 🇨🇦</h3>
+            <p>A beautiful coastal city offering a perfect blend of urban excitement, pristine beaches, and stunning mountain views.</p>
+        </div>
+    </div>
+    
+    <div style="text-align: center; margin-top: 30px;">
+        <button id="toggleDestinationsBtn" class="card-link dropdown-btn">View More Destinations</button>
+    </div>
+</section>
+    
+
+    <section id="gallery">
+        <h2>Photo Gallery 📸</h2>
+        <div class="gallery-grid">
+            
+            <a href="#img1" class="gallery-item" id="img1-thumb">
+                <img src="assets/City.jpg" alt="Vibrant City view">
+                <div class="lightbox" id="img1">
+                    <a href="#gallery" class="close">X</a>
+                    <img src="assets/City.jpg" alt="Vibrant City view in lightbox">
+                    <p>A bustling, vibrant city skyline at dusk.</p>
+                </div>
+            </a>
+
+            <a href="#img2" class="gallery-item" id="img2-thumb">
+                <img src="assets/beach.jpg" alt="Tropical Beach sunset">
+                <div class="lightbox" id="img2">
+                    <a href="#gallery" class="close">X</a>
+                    <img src="assets/beach.jpg" alt="Tropical Beach sunset in lightbox">
+                    <p>Relaxing tropical beach with a perfect sunset.</p>
+                </div>
+            </a>
+
+            <a href="#img3" class="gallery-item" id="img3-thumb">
+                <img src="assets/forest path.jpg" alt="Peaceful Forest path">
+                <div class="lightbox" id="img3">
+                    <a href="#gallery" class="close">X</a>
+                    <img src="assets/forest path.jpg" alt="Peaceful Forest path in lightbox">
+                    <p>A serene, peaceful path through a lush forest.</p>
+                </div>
+            </a>
+
+            <a href="#img4" class="gallery-item" id="img4-thumb">
+                <img src="assets/historical ruin.jpg" alt="Ancient historical ruin">
+                <div class="lightbox" id="img4">
+                    <a href="#gallery" class="close">X</a>
+                    <img src="assets/historical ruin.jpg" alt="Ancient historical ruin in lightbox">
+                    <p>Majestic ancient ruins speaking of history.</p>
+                </div>
+            </a>
+            
+            <a href="#img5" class="gallery-item" id="img5-thumb">
+                <img src="assets/hot air.jpg" alt="Hot air balloons over a valley">
+                <div class="lightbox" id="img5">
+                    <a href="#gallery" class="close">X</a>
+                    <img src="assets/hot air.jpg" alt="Hot air balloons over a valley in lightbox">
+                    <p>A serene morning watching hot air balloons float over a valley.</p>
+                </div>
+            </a>
+            
+            <a href="#img6" class="gallery-item" id="img6-thumb">
+                <img src="assets/gondolea.jpg" alt="Gondola in Venice canal">
+                <div class="lightbox" id="img6">
+                    <a href="#gallery" class="close">X</a>
+                    <img src="assets/gondolea.jpg" alt="Gondola in Venice canal in lightbox">
+                    <p>A classic, romantic gondola ride through Venice canals.</p>
+                </div>
+            </a>
+
+            <a href="#img7" class="gallery-item" id="img7-thumb">
+                <img src="assets/wild.jpg" alt="Safari jeep in the wilderness">
+                <div class="lightbox" id="img7">
+                    <a href="#gallery" class="close">X</a>
+                    <img src="assets/wild.jpg" alt="Safari jeep in the wilderness in lightbox">
+                    <p>An exhilarating safari adventure in the open savanna.</p>
+                </div>
+            </a>
+            
+            <a href="#img8" class="gallery-item" id="img8-thumb">
+                <img src="assets/aurora.jpg" alt="Aurora Borealis over a snowy landscape">
+                <div class="lightbox" id="img8">
+                    <a href="#gallery" class="close">X</a>
+                    <img src="assets/aurora.jpg" alt="Aurora Borealis over a snowy landscape in lightbox">
+                    <p>The breathtaking Northern Lights dancing in the sky.</p>
+                </div>
+            </a>
+
+             <a href="#img9" class="gallery-item" id="img9-thumb">
+                <img src="assets/wild.jpg" alt="Safari jeep in the wilderness">
+                <div class="lightbox" id="img9">
+                    <a href="#gallery" class="close">X</a>
+                    <img src="assets/wild.jpg" alt="Safari jeep in the wilderness in lightbox">
+                    <p>An exhilarating safari adventure in the open savanna.</p>
+                </div>
+            </a>
+            
+        </div>
+        </section>
+
+    <section id="testimonials">
+        <h2>What Our Adventurers Say 🌟</h2>
+        <div class="testimonial-carousel">
+            <div class="testimonial-card scroll-reveal active">
+                <p>"The Paris trip was absolutely magical. Everything was handled perfectly, from the hotel to the local tours. A truly seamless experience!"</p>
+                <h4>— Alex M. (Paris Trip)</h4>
+            </div>
+            <div class="testimonial-card scroll-reveal active">
+                <p>"Kyoto was a dream come true. The Zen Garden Retreat package was incredibly relaxing and deeply cultural. Highly recommend Wanderlust!"</p>
+                <h4>— Jessica P. (Kyoto Trip)</h4>
+            </div>
+            <div class="testimonial-card scroll-reveal active">
+                <p>"Santorini sunsets exceeded expectations! Thank you for planning our perfect honeymoon. Five stars!"</p>
+                <h4>— Chris & Sarah B. (Santorini Trip)</h4>
+            </div>
+            <div class="testimonial-card scroll-reveal active">
+                <p>"The Patagonia trekking tour pushed my limits in the best way! Expert guides and breathtaking views. If you love adventure, book this now."</p>
+                <h4>— David L. (Patagonia Trek)</h4>
+            </div>
+            <div class="testimonial-card scroll-reveal active">
+                <p>"I needed a break, and the Bali wellness package delivered peace and rejuvenation. The accommodations were stunning and the yoga was fantastic."</p>
+                <h4>— Sarah K. (Bali Retreat)</h4>
+            </div>
+            <div class="testimonial-card scroll-reveal active">
+                <p>"Our multi-city European rail tour was stress-free and exciting. They managed all the logistics so we could just enjoy Venice, Rome, and Florence."</p>
+                <h4>— Michael R. (European Rail)</h4>
+            </div>
+            
+             <button class="carousel-prev" aria-label="Previous testimonial">&#10094;</button>
+                <button class="carousel-next" aria-label="Next testimonial">&#10095;</button>
+
+        </div>
+    </section>
+    
+    <section id="contact" class="contact-section-split  scroll-reveal">
+        
+        <div class="contact-image-container">
+            <img src="assets/travel_contact.webp" alt="A stylized map or support illustration" class="contact-map-image">
+        </div>
+
+        <div class="contact-form-wrapper">
+            <h2>Contact Us 📧</h2>
+            
+            <form class="contact-form" method="POST" action="/contact">
+                <div class="form-group">
+                    <label for="name">Your Name:</label>
+                    <input type="text" id="name" name="name" required autocomplete="name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Your Email:</label>
+                    <input type="email" id="email" name="email" required autocomplete="email">
+                </div>
+                <div class="form-group">
+                    <label for="message">Your Message:</label>
+                    <textarea id="message" name="message" rows="5" required autocomplete="off"></textarea>
+                </div>
+                <button type="submit" class="submit-button">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Wanderlust Adventures | Happy Travels!</p>
+    </footer>
+
+    <button id="backToTopBtn" title="Go to top"><i class="fas fa-arrow-up"></i></button>
+    <div id="liveChatIcon" title="Live Chat"><i class="fas fa-comment-dots"></i></div>
+
+    <script src="script.js"></script>
+
+    <div id="bookingModal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h3>Book Your Adventure 🌍</h3>
+        <p>Tell us a little about your dream trip!</p>
+        
+        <form id="bookingForm" class="booking-form" action="/api/book">
+            <div class="form-group">
+                <label for="modal-name">Full Name:</label>
+                <input type="text" id="modal-name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="modal-email">Email:</label>
+                <input type="email" id="modal-email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="modal-destination">Destination of Interest:</label>
+                <select id="modal-destination" name="destination" required>
+                    <option value="">Select a Destination</option>
+                    <option value="paris">Paris, France</option>
+                    <option value="kyoto">Kyoto, Japan</option>
+                    <option value="santorini">Santorini, Greece</option>
+                    <option value="other">Other/Unsure</option>
+                </select>
+            </div>
+
+             <div id="consultationDetails" style="display: none; padding: 15px; border-top: 1px solid #eee; margin-top: 15px;">
+                <h4 style="color: #004d7a;">Consultation Needs:</h4>
+                
+                <div class="form-group">
+                    <label for="modal-style">Preferred Travel Style:</label>
+                    <select id="modal-style" name="style">
+                        <option value="">-- Select Modal Style --</option>
+                        <option value="leisurely">Relaxed & Leisurely</option>
+                        <option value="adventure">Adventurous & Active</option>
+                        <option value="culture">Culture & History Focused</option>
+                        <option value="luxury">Luxury & Exclusive</option>
+                        <option value="family">Family-Friendly</option>
+                        <option value="budget">Budget-Conscious</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="modal-budget">Estimated Budget (per person, in INR ₹):</label>
+                    <select id="modal-budget" name="budget">
+                        <option value="">-- Select Budget --</option>
+                        <option value="1L-3L">₹1,00,000 - ₹3,00,000 (Budget)</option>
+                        <option value="3L-5L">₹3,00,000 - ₹5,00,000</option>
+                        <option value="5L-10L">₹5,00,000 - ₹10,00,000</option>
+                        <option value="10L+">₹10,00,000 + (Luxury)</option>
+                        <option value="unsure">Unsure / Need Guidance</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="modal-month">Desired Travel Month:</label>
+                    <select id="modal-month" name="month">
+                        <option value="">-- Select Month --</option>
+                        <option value="q1">Jan - Mar (Q1)</option>
+                        <option value="q2">Apr - Jun (Q2)</option>
+                        <option value="q3">Jul - Sep (Q3)</option>
+                        <option value="q4">Oct - Dec (Q4)</option>
+                        <option value="flexible">Flexible / Anytime</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="modal-notes">Additional Notes/Interests:</label>
+                    <textarea id="modal-notes" name="notes" rows="2" placeholder="e.g., Looking for a quick mountain trip, need vegan options..."></textarea>
+                </div>
+
+            </div>
+
+             <div class="form-group">
+                <label for="modal-date">Preferred Start Date:</label>
+                <input type="date" id="modal-date" name="date" required>
+            </div>
+            <button type="submit" class="submit-button">Request Booking</button>
+        </form>
+
+    </div>
+</div>
+
+</body>
+</html>
